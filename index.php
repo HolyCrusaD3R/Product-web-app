@@ -3,14 +3,30 @@
     <div class="container">
         <?php
             $sql = 'SELECT * FROM products';
-            //var_dump($_SESSION['conn']);
-            $result = mysqli_query($_SESSION['conn'], $sql);
-            $products = mysqli_fetch_all($result, MYSQLI_ASSOC);
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+                $json = file_get_contents('php://input');
+                $data = json_decode($json);
+                var_dump($data->SKUs);
+
+                $query = 'DELETE FROM products WHERE ';
+                foreach($data->SKUs as $sku)
+                {
+                    $query .= "SKU='" . $sku . "' OR ";
+                }
+                $query = substr_replace($query ,"",-4);
+                var_dump($query);
+                $_SESSION['conn']->query($query);
+            }
+            if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+                $result = mysqli_query($_SESSION['conn'], $sql);
+                $products = mysqli_fetch_all($result, MYSQLI_ASSOC);
+            }
         ?>
 
         <?php foreach($products as $product): ?>
             <div class="item">
-                <input type="checkbox" id="<?php echo $product["SKU"] ?>">
+                <input type="checkbox" id="<?php echo $product["SKU"] ?>" class="checkbox">
                 <p><?php echo $product["SKU"] ?></p>
                 <p><?php echo $product["name"] ?></p>
                 <p class="price"><?php echo $product["price"] ?></p>
@@ -29,3 +45,4 @@
     </div>
 
 <?php include "./inc/footer.php" ?>
+
