@@ -1,0 +1,33 @@
+@mixin flexCenter($direction) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  flex-direction: $direction;
+}
+
+@mixin flexSpaceAround($direction) {
+  display: flex;
+  justify-content: space-around;
+  align-content: space-around;
+  flex-flow: row wrap;
+  flex-direction: $direction;
+  * {
+    margin: 10px;
+  }
+}
+
+@mixin flexSpaceBetween($direction) {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-content: space-between;
+  flex-direction: $direction;
+  * {
+    margin: 10px;
+  }
+}
+
+@mixin shadowedBorder($width) {
+  border: $width solid #222222;
+}

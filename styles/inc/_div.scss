@@ -1,0 +1,19 @@
+div {
+  &.container {
+    @include shadowedBorder(3px);
+    @include flexSpaceAround(row);
+  }
+  &.item {
+    min-width: 15vw;
+    @include shadowedBorder(1px);
+    @include flexCenter(column);
+    p {
+      &.price::after {
+        content: "$";
+      }
+      &.size::before {
+        content: "Size: ";
+      }
+    }
+  }
+}
