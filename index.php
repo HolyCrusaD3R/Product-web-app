@@ -1,4 +1,4 @@
-<?php include "./inc/header.php" ?>
+<?php require "./inc/header.php" ?>
 
     <div class="container">
         <?php
@@ -7,7 +7,6 @@
 
                 $json = file_get_contents('php://input');
                 $data = json_decode($json);
-                var_dump($data->SKUs);
 
                 $query = 'DELETE FROM products WHERE ';
                 foreach($data->SKUs as $sku)
@@ -15,8 +14,9 @@
                     $query .= "SKU='" . $sku . "' OR ";
                 }
                 $query = substr_replace($query ,"",-4);
-                var_dump($query);
+
                 $_SESSION['conn']->query($query);
+
             }
             if ($_SERVER['REQUEST_METHOD'] === 'GET') {
                 $result = mysqli_query($_SESSION['conn'], $sql);
@@ -44,5 +44,5 @@
         -->
     </div>
 
-<?php include "./inc/footer.php" ?>
+<?php require "./inc/footer.php" ?>
 

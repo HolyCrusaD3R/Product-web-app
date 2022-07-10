@@ -28,5 +28,32 @@ div.item {
     content: "$"; }
   div.item p.size::before {
     content: "Size: "; }
+div#size-div div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  flex-direction: column; }
+
+form {
+  max-width: 50vw;
+  margin: auto;
+  padding: 4rem;
+  border: 3px solid #222222;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-content: space-between;
+  flex-direction: column; }
+  form * {
+    margin: 10px; }
+
+p.alert {
+  margin: auto;
+  text-align: center;
+  color: white;
+  max-width: 30vh;
+  background-color: #db2a44;
+  border-radius: 15px; }
 
 /*# sourceMappingURL=style.css.map */

@@ -19,10 +19,8 @@ window.addEventListener('load', () => {
             },
             body: JSON.stringify(data)
          }).then(res => {
-            console.log("Request complete! response:", res);
+            //console.log("Request complete! response:", res);
          });
-         console.log(JSON.stringify(data));
-         //console.log(sql_query);
          window.location.reload();
       }
    });

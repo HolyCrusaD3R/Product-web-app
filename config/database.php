@@ -1,12 +1,14 @@
 <?php
+    require "./classes/DatabaseConnect.php";
     session_start();
-    const DB_HOST = "localhost";
-    const DB_USER = "root";
-    const DB_PASS = "";
-    const DB_NAME = "Lukasproject";
+//    const DB_HOST = "localhost";
+//    const DB_USER = "root";
+//    const DB_PASS = "";
+//    const DB_NAME = "Lukasproject";
 
     // Create connection
-    $_SESSION['conn'] = new mysqli(DB_HOST,DB_USER,DB_PASS,DB_NAME);
+    $db = new dbh();
+    $_SESSION['conn'] = $db->connect();
     //var_dump($_SESSION['conn']);
     if($_SESSION['conn']->connect_error)
     {

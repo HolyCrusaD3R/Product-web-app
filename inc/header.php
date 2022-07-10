@@ -14,7 +14,7 @@
     <header>
         <a href="./"><h1>Luka's Project</h1></a>
         <div>
-            <button id="add">Add</button>
+            <a href="./add.php"><button id="add">Add</button></a>
             <button id="mass-delete">Mass Delete</button>
         </div>
     </header>

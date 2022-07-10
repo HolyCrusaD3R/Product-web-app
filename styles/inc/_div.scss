@@ -16,4 +16,9 @@ div {
       }
     }
   }
+  &#size-div {
+    div {
+      @include flexCenter(column);
+    }
+  }
 }
